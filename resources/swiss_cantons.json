@@ -1,0 +1,31 @@
+{
+  "cantons": [
+    {"code": "ZH", "name": "Zürich", "capital": "Zürich"},
+    {"code": "BE", "name": "Bern", "capital": "Bern"},
+    {"code": "LU", "name": "Luzern", "capital": "Luzern"},
+    {"code": "UR", "name": "Uri", "capital": "Altdorf"},
+    {"code": "SZ", "name": "Schwyz", "capital": "Schwyz"},
+    {"code": "OW", "name": "Obwalden", "capital": "Sarnen"},
+    {"code": "NW", "name": "Nidwalden", "capital": "Stans"},
+    {"code": "GL", "name": "Glarus", "capital": "Glarus"},
+    {"code": "ZG", "name": "Zug", "capital": "Zug"},
+    {"code": "FR", "name": "Freiburg", "capital": "Freiburg"},
+    {"code": "SO", "name": "Solothurn", "capital": "Solothurn"},
+    {"code": "BS", "name": "Basel-Stadt", "capital": "Basel"},
+    {"code": "BL", "name": "Basel-Landschaft", "capital": "Liestal"},
+    {"code": "SH", "name": "Schaffhausen", "capital": "Schaffhausen"},
+    {"code": "AR", "name": "Appenzell Ausserrhoden", "capital": "Herisau"},
+    {"code": "AI", "name": "Appenzell Innerrhoden", "capital": "Appenzell"},
+    {"code": "SG", "name": "St. Gallen", "capital": "St. Gallen"},
+    {"code": "GR", "name": "Graubünden", "capital": "Chur"},
+    {"code": "AG", "name": "Aargau", "capital": "Aarau"},
+    {"code": "TG", "name": "Thurgau", "capital": "Frauenfeld"},
+    {"code": "TI", "name": "Tessin", "capital": "Bellinzona"},
+    {"code": "VD", "name": "Waadt", "capital": "Lausanne"},
+    {"code": "VS", "name": "Wallis", "capital": "Sion"},
+    {"code": "NE", "name": "Neuenburg", "capital": "Neuenburg"},
+    {"code": "GE", "name": "Genf", "capital": "Genf"},
+    {"code": "JU", "name": "Jura", "capital": "Delsberg"}
+  ],
+  "note": "26 Swiss cantons with official codes and capitals"
+}

@@ -1,0 +1,36 @@
+# Python dependencies for ML Switzerland project
+
+# Core Data Science
+numpy>=1.24.0           # Numerical computing
+pandas>=2.0.0           # Data manipulation
+scipy>=1.10.0           # Scientific computing
+
+# Visualization
+matplotlib>=3.7.0       # Plotting
+seaborn>=0.12.0         # Statistical visualization
+plotly>=5.14.0          # Interactive plots
+
+# Machine Learning (for comparison only - build from scratch first!)
+scikit-learn>=1.2.0     # Reference implementations
+
+# Data Collection
+requests>=2.31.0        # HTTP requests for APIs
+beautifulsoup4>=4.12.0  # Web scraping
+lxml>=4.9.0             # XML/HTML parser
+
+# Development
+pytest>=7.3.0           # Testing
+jupyter>=1.0.0          # Notebooks
+ipykernel>=6.23.0       # Jupyter kernel
+black>=23.0.0           # Code formatting
+flake8>=6.0.0           # Linting
+mypy>=1.3.0             # Type checking
+
+# Utilities
+python-dotenv>=1.0.0    # Environment variables
+tqdm>=4.65.0            # Progress bars
+logging>=0.4.9          # Enhanced logging
+
+# Optional: Deep Learning (for later)
+# torch>=2.0.0          # PyTorch
+# tensorflow>=2.12.0    # TensorFlow
