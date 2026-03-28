@@ -1,8 +1,12 @@
-# 🇨🇭 ML Switzerland - Car Accidents & Weather Analysis
+# 🇨🇭 ML Switzerland - Real Swiss Geodata Learning
 
-**Project:** Predictive model for car accident hotspots in Swiss cantons based on weather conditions
+**Project:** Learn machine learning by building algorithms from scratch using REAL Swiss geospatial data
+
+**Dataset:** 112,145 land cover features from Kanton Uri (100% official Swiss government data)
 
 **Learning Goal:** Build a complete machine learning pipeline from scratch using object-oriented programming
+
+**Data Policy:** ONLY REAL DATA - No synthetic or dummy data for training
 
 ---
 
@@ -15,36 +19,38 @@ Build a model that predicts:
 
 ---
 
-## 📚 Learning Path
+## 📚 Learning Path (Using REAL Uri Geodata)
 
 ### Phase 1: Foundations (Weeks 1-2)
-- [ ] Python OOP fundamentals
-- [ ] Data structures for ML
-- [ ] NumPy & Pandas mastery
-- [ ] Data visualization (Matplotlib, Seaborn)
+- [x] Python OOP fundamentals
+- [x] Data structures for ML
+- [x] NumPy & Pandas mastery
+- [ ] Data visualization (Matplotlib, Seaborn, Folium for maps)
+- [ ] **START HERE:** Load Uri geodata, create first maps
 
 ### Phase 2: Data Engineering (Weeks 3-4)
-- [ ] Data collection & scraping
-- [ ] Data cleaning & preprocessing
-- [ ] Feature engineering
+- [ ] Data cleaning & preprocessing (handle missing values)
+- [ ] Feature engineering (create ML features from geodata)
 - [ ] Exploratory Data Analysis (EDA)
+- [ ] Geographic data handling (projections, coordinates)
 
 ### Phase 3: Machine Learning Basics (Weeks 5-7)
 - [ ] Supervised vs Unsupervised learning
-- [ ] Regression algorithms
-- [ ] Classification algorithms
-- [ ] Model evaluation metrics
+- [ ] **Implement from scratch:** Linear Regression
+- [ ] **Implement from scratch:** Logistic Regression
+- [ ] **Implement from scratch:** Decision Trees
+- [ ] Model evaluation metrics (accuracy, precision, recall, F1)
 
 ### Phase 4: Advanced Topics (Weeks 8-10)
-- [ ] Feature selection
+- [ ] **Implement from scratch:** K-Means Clustering
+- [ ] Feature selection for geospatial data
 - [ ] Hyperparameter tuning
 - [ ] Cross-validation
-- [ ] Ensemble methods
 
 ### Phase 5: Deployment (Weeks 11-12)
 - [ ] Model serialization
-- [ ] API creation
-- [ ] Dashboard/visualization
+- [ ] API creation (FastAPI)
+- [ ] Interactive map visualization
 - [ ] Documentation
 
 ---
@@ -190,28 +196,41 @@ pytest tests/ -v
 
 ---
 
-## 📊 Data Requirements
+## 📊 Available Real Data
 
-### Accident Data (To Collect)
-- **Canton** (ZH, BE, LU, UR, SZ, etc.)
-- **Date & Time** of incident
-- **Location** (coordinates or region)
-- **Severity** (minor, serious, fatal)
-- **Vehicle type** (car, motorcycle, truck, etc.)
-- **Road conditions** (dry, wet, icy, snow)
+### ✅ Uri Geodata (REAL - 100% Official Swiss Data)
+**Source:** Kanton Uri WMS/WFS (https://geo.ur.ch/wms)
 
-### Weather Data (To Collect)
-- **Temperature** (°C)
-- **Precipitation** (mm)
-- **Snow depth** (cm)
-- **Wind speed** (km/h)
-- **Visibility** (km)
-- **Weather condition** (sunny, rainy, snowy, foggy)
+**Land Cover Data:**
+- **58,689 land parcels** (buildings, roads, forest, water, agriculture)
+- **53,445 individual objects** (small geographic features)
+- **11 protected biotopes** (conservation areas)
+- **Coordinates:** Swiss LV95 / WGS84
+- **File:** `data/raw/uri_geodata/uri_bodenbedeckung.csv`
 
-### Data Collection Strategy
-1. **Accidents:** BFS database, police reports, news scraping
-2. **Weather:** MeteoSwiss API, historical weather APIs
-3. **Time Period:** 2020-2025 (5 years for good patterns)
+**ML Tasks:**
+- Land use classification (what type of land cover?)
+- Geographic clustering (find natural regions)
+- Area prediction (how large are parcels?)
+- Object detection (identify small features)
+
+### 🔍 More Real Data Sources (To Download)
+
+**Swiss Accident Data:**
+- **Source:** BFS (Bundesamt für Statistik)
+- **URL:** https://www.pxweb.bfs.admin.ch/pxweb/de/px-x-1106010100_103/
+- **Format:** Manual download → CSV
+- **Instructions:** See `docs/download_real_data.md`
+
+**Swiss Weather Data:**
+- **Source:** MeteoSwiss
+- **URL:** https://www.meteoswiss.admin.ch/home.html
+- **Alternative:** Open-Meteo API (free, no key needed)
+
+**Air Quality Data:**
+- **Source:** opendata.swiss
+- **URL:** https://opendata.swiss/en/dataset/stickstoffdioxid-no
+- **Format:** WFS download → CSV
 
 ---
 
