@@ -1,0 +1,37 @@
+URI GEODATA SUMMARY
+============================================================
+
+Generated: 2026-03-28T19:03:48.470103
+
+Total layers: 3
+Total features: 112,145
+
+
+bodenbedeckung:
+             art_nr   shape_length    shape_area    flaeche_m2  ml_target
+count  58689.000000   58689.000000  5.868900e+04  5.868900e+04    58689.0
+mean       7.631532     514.679317  1.834304e+04  1.834304e+04        0.0
+std        8.118733    2692.983863  2.135232e+05  2.135232e+05        0.0
+min        0.000000       2.933710  1.928355e-01  0.000000e+00        0.0
+25%        0.000000      37.847453  6.951044e+01  7.000000e+01        0.0
+50%        7.000000      70.754035  1.722088e+02  1.720000e+02        0.0
+75%       12.000000     268.478462  1.133902e+03  1.134000e+03        0.0
+max       26.000000  134892.634495  1.296324e+07  1.296324e+07        0.0
+
+einzelobjekte:
+       shape_length    shape_area
+count  53445.000000  53445.000000
+mean      51.885774     58.612174
+std      241.790521    824.958185
+min        0.464547      0.007458
+25%       12.701033      3.257306
+50%       24.274791      9.339154
+75%       49.750675     26.467587
+max    25259.717320  91228.751230
+
+biotope:
+       kanton   objnummer  teilobj_nr bedeutung                           name            bio_typ bio_typ_kt kartierungsgrundlage   herkunft aufnahmedatum mutationsdatum mutationsgrund import_datum    layer
+count      11          11          11        11                             11                 11          0                   11         11            11              1              0           11       11
+unique      1          11          11         2                             11                  3          0                    2          2             2              1              0            1        1
+top        UR  NO.1210.16  NO.1210.16     Lokal  Drei Bergseen Rossplattenseen  Anderer Biotoptyp        NaN            Unbekannt  unbekannt   2016-06-21Z    2021-12-21Z            NaN  2026-03-23Z  biotope
+freq       11           1           1         9                              1                  6        NaN                   10          8             8              1            NaN           11       11
