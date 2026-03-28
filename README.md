@@ -132,17 +132,45 @@ ml-switzerland-accidents/
 
 ## 🚀 Getting Started
 
-### 1. Setup Environment
+### 1. Install uv (if you haven't already)
 ```bash
-# Create virtual environment
-python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+# On macOS/Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# Install dependencies
-pip install -r requirements.txt
+# On Windows
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# Verify installation
+uv --version
+```
+
+### 2. Setup Project Environment
+```bash
+cd ml-switzerland-accidents
+
+# Create virtual environment with uv
+uv venv
+
+# Activate environment
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install all dependencies
+uv pip install -r requirements.txt
 
 # Install package in development mode
-pip install -e .
+uv pip install -e .
+```
+
+### 3. Verify Setup
+```bash
+# Check Python version
+python --version
+
+# Check installed packages
+uv pip list
+
+# Run a test
+pytest tests/ -v
 ```
 
 ### 2. Start with Notebooks
