@@ -14,10 +14,21 @@
 
 ## 🎯 Project Objective
 
-Build a model that predicts:
-1. **Where** car accidents are most likely to occur (by canton/region)
-2. **How** weather conditions impact accident frequency
-3. **When** high-risk periods occur (seasonal patterns)
+Learn machine learning by building algorithms from scratch using REAL Swiss government data.
+
+**Current Focus Datasets:**
+
+1. **Frauenfeld Parking** (Recommended for beginners)
+   - Predict parking availability (binary classification)
+   - Time-series forecasting (when will spots be free?)
+   - Pattern recognition (rush hour, weekends, events)
+
+2. **Uri Geodata** (Advanced, geospatial)
+   - Land use classification (what type of land cover?)
+   - Geographic clustering (find natural regions)
+   - Area prediction (how large are parcels?)
+
+**All algorithms built from scratch - no sklearn black boxes!**
 
 ---
 
@@ -65,50 +76,46 @@ Build a model that predicts:
 ml-switzerland-accidents/
 ├── src/
 │   ├── data/
-│   │   ├── data_loader.py          # TODO: Load data from CSV/APIs
-│   │   ├── data_validator.py       # TODO: Validate data quality
-│   │   └── dataset.py              # TODO: Dataset class with getitem/len
+│   │   ├── collect_uri_geodata.py         # ✅ Uri geodata collector (REAL data)
+│   │   ├── collect_frauenfeld_parking.py  # ✅ Parking data collector (REAL data)
+│   │   ├── data_loader.py                 # TODO: Generic data loading
+│   │   └── data_validator.py              # TODO: Validate data quality
 │   ├── preprocessing/
 │   │   ├── cleaner.py              # TODO: Handle missing values
 │   │   ├── normalizer.py           # TODO: Feature scaling
 │   │   ├── encoder.py              # TODO: Categorical encoding
 │   │   └── feature_engineer.py     # TODO: Create new features
 │   ├── models/
-│   │   ├── base_model.py           # TODO: Abstract base class for all models
+│   │   ├── base_model.py           # ✅ Abstract base class (started)
 │   │   ├── linear_regression.py    # TODO: Implement from scratch
 │   │   ├── logistic_regression.py  # TODO: Implement from scratch
 │   │   ├── decision_tree.py        # TODO: Implement from scratch
-│   │   └── neural_network.py       # TODO: Implement from scratch
+│   │   └── kmeans.py               # TODO: Implement from scratch
 │   ├── evaluation/
 │   │   ├── metrics.py              # TODO: Accuracy, Precision, Recall, F1, RMSE
-│   │   ├── cross_validator.py      # TODO: K-fold cross-validation
-│   │   └── visualizer.py           # TODO: Confusion matrix, ROC curves
+│   │   └── cross_validator.py      # TODO: K-fold cross-validation
 │   └── utils/
-│       ├── logger.py               # TODO: Logging utility
-│       ├── config.py               # TODO: Configuration management
-│       └── helpers.py              # TODO: Helper functions
+│       └── logger.py               # TODO: Logging utility
 ├── notebooks/
-│   ├── 01_data_exploration.ipynb   # TODO: EDA notebook
-│   ├── 02_preprocessing.ipynb      # TODO: Preprocessing experiments
-│   ├── 03_model_training.ipynb     # TODO: Model training experiments
-│   └── 04_evaluation.ipynb         # TODO: Model evaluation
+│   ├── 01_frauenfeld_parking_exploration.ipynb  # ✅ Parking EDA (ready to start)
+│   └── 02_uri_geodata_exploration.ipynb         # ✅ Uri geodata EDA (ready to start)
 ├── data/
-│   ├── raw/                        # Original data (DO NOT MODIFY)
-│   ├── processed/                  # Cleaned, ready-to-use data
-│   └── external/                   # Third-party data
+│   ├── raw/
+│   │   ├── uri_geodata/           # ✅ 112,145 features from Kanton Uri
+│   │   └── frauenfeld_parking/    # ✅ 10,800 records (March 2026)
+│   ├── processed/
+│   │   ├── uri_geodata_ml_ready.csv       # ✅ ML-ready Uri dataset
+│   │   └── frauenfeld_parking_ml_ready.csv # ✅ ML-ready parking dataset
+│   └── external/                  # For future datasets
 ├── tests/
 │   ├── test_data_loader.py         # TODO: Test data loading
-│   ├── test_preprocessing.py       # TODO: Test preprocessing
 │   └── test_models.py              # TODO: Test model predictions
 ├── docs/
-│   ├── learning_resources.md       # Curated learning materials
-│   ├── project_plan.md             # Detailed project plan
-│   └── api_reference.md            # Class/function documentation
+│   ├── learning_resources.md       # ✅ Curated learning materials
+│   └── build_from_scratch.md       # ✅ Philosophy: No sklearn black boxes
 ├── resources/
-│   ├── swiss_cantons.json          # Canton codes & names
-│   └── weather_codes.json          # Weather condition codes
-├── requirements.txt                # Python dependencies
-├── setup.py                        # Package installation
+│   └── swiss_cantons.json          # ✅ Canton codes & names
+├── requirements.txt                # ✅ Python dependencies (uv managed)
 └── README.md                       # This file
 ```
 
@@ -142,7 +149,7 @@ ml-switzerland-accidents/
 
 ## 🚀 Getting Started
 
-### 1. Install uv (if you haven't already)
+### 1. Install uv (Python Package Manager)
 ```bash
 # On macOS/Linux
 curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -166,21 +173,32 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
 # Install all dependencies
 uv pip install -r requirements.txt
-
-# Install package in development mode
-uv pip install -e .
 ```
 
 ### 3. Verify Setup
 ```bash
-# Check Python version
+# Check Python version (should be 3.9+)
 python --version
 
 # Check installed packages
 uv pip list
 
-# Run a test
-pytest tests/ -v
+# List available datasets
+ls data/processed/
+```
+
+### 4. Choose Your Starting Dataset
+
+**Option A: Frauenfeld Parking (Recommended for Beginners)**
+```bash
+# Open Jupyter notebook
+jupyter notebook notebooks/01_frauenfeld_parking_exploration.ipynb
+```
+
+**Option B: Uri Geodata (Advanced, Geospatial)**
+```bash
+# Open Jupyter notebook
+jupyter notebook notebooks/02_uri_geodata_exploration.ipynb
 ```
 
 ### 2. Start with Notebooks
@@ -283,22 +301,25 @@ pytest tests/ -v
 By project completion, you should be able to:
 - [ ] Build ML models from scratch (no sklearn black boxes)
 - [ ] Explain every line of code in your models
-- [ ] Collect, clean, and preprocess real-world data
-- [ ] Evaluate models with proper metrics
+- [ ] Work with REAL Swiss government data
+- [ ] Clean and preprocess real-world datasets
+- [ ] Evaluate models with proper metrics (accuracy, precision, recall, F1)
 - [ ] Deploy a working prediction system
-- [ ] Understand mathematical foundations
+- [ ] Understand mathematical foundations (gradient descent, decision trees, clustering)
 - [ ] Write clean, modular, testable code
+- [ ] Create data visualizations and explore patterns
 
 ---
 
 ## 📝 How to Use This Repo
 
-1. **Read TODO comments** - They guide what to implement
-2. **Start simple** - Don't over-engineer initially
-3. **Test frequently** - Write tests before/after code
-4. **Document learnings** - Add comments explaining concepts
-5. **Ask questions** - When stuck, research or ask for help
-6. **Iterate** - First version doesn't need to be perfect
+1. **Choose a dataset** - Start with Frauenfeld Parking (easier) or Uri Geodata (advanced)
+2. **Explore the data** - Open the corresponding Jupyter notebook
+3. **Implement algorithms from scratch** - Follow the learning path
+4. **Build incrementally** - Start with simple models, then advance
+5. **Test your implementations** - Compare with sklearn (for validation only)
+6. **Document learnings** - Add comments explaining concepts
+7. **Ask questions** - When stuck, research or ask for help
 
 ---
 
@@ -312,7 +333,49 @@ Every week, update `docs/weekly_progress.md`:
 
 ---
 
+## 📊 Dataset Summary
+
+### Frauenfeld Parking (Recommended for Beginners)
+- **Records:** 10,800 hourly measurements
+- **Time Period:** 90 days (Jan-Mar 2026)
+- **Locations:** 5 parking lots in Frauenfeld
+- **Features:** occupancy_rate, hour, day_of_week, weather, is_rush_hour
+- **Target:** hard_to_find_parking (binary: 0 or 1)
+- **ML Tasks:** Binary classification, time-series forecasting
+- **File:** `data/processed/frauenfeld_parking_ml_ready.csv`
+
+### Uri Geodata (Advanced, Geospatial)
+- **Records:** 112,145 geographic features
+- **Source:** Kanton Uri WMS/WFS (official Swiss government data)
+- **Layers:** 
+  - 58,689 land parcels (buildings, roads, forest, water, agriculture)
+  - 53,445 individual objects
+  - 11 protected biotopes
+- **Features:** area, land_cover_type, coordinates, quality
+- **Target:** land_cover_type (multi-class) or area (regression)
+- **ML Tasks:** Classification, clustering, regression
+- **File:** `data/raw/uri_geodata/uri_bodenbedeckung.csv`
+
+---
+
+## 🎯 Quick Start Guide
+
+**Complete Beginner?** Start here:
+1. Open `notebooks/01_frauenfeld_parking_exploration.ipynb`
+2. Run all cells to explore the data
+3. Implement your first model in `src/models/logistic_regression.py`
+4. Train and evaluate your model
+
+**Have ML Experience?** Try this:
+1. Open `notebooks/02_uri_geodata_exploration.ipynb`
+2. Explore the geospatial data
+3. Implement Decision Tree from scratch
+4. Classify land cover types
+
+---
+
 **Remember:** The goal is **learning**, not perfection. Build, break, fix, repeat! 🚀
 
-*Last Updated: 2026-03-28*
+*Last Updated: 2026-03-29*
 *Created by: J (with Lexy's guidance)*
+*Data Sources: Kanton Uri WMS, opendata.swiss (Canton Thurgau)*
