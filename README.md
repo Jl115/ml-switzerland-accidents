@@ -189,17 +189,22 @@ ls data/processed/
 
 ### 4. Choose Your Starting Dataset
 
-**Option A: Frauenfeld Parking (Recommended for Beginners)**
-```bash
-# Open Jupyter notebook
-jupyter notebook notebooks/01_frauenfeld_parking_exploration.ipynb
-```
-
-**Option B: Uri Geodata (Advanced, Geospatial)**
+**🇨🇭 Uri Geodata (CURRENT FOCUS - Recommended for Learning)**
 ```bash
 # Open Jupyter notebook
 jupyter notebook notebooks/02_uri_geodata_exploration.ipynb
 ```
+- 58,689 land parcels with real Swiss geodata
+- Multi-class classification (27 land cover types)
+- Learn: Decision Trees, feature engineering, categorical encoding
+
+**Option B: Frauenfeld Parking (Alternative - Time Series)**
+```bash
+# Open Jupyter notebook
+jupyter notebook notebooks/01_frauenfeld_parking_exploration.ipynb
+```
+- 10,800 parking records (easier, binary classification)
+- Time-series patterns, rush hour prediction
 
 ### 2. Start with Notebooks
 1. Open `notebooks/01_data_exploration.ipynb`
