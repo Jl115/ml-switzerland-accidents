@@ -1,8 +1,10 @@
-# 🇨🇭 ML Switzerland - Real Swiss Geodata Learning
+# 🇨🇭 ML Switzerland - Learn ML with Real Swiss Data
 
-**Project:** Learn machine learning by building algorithms from scratch using REAL Swiss geospatial data
+**Project:** Learn machine learning by building algorithms from scratch using REAL Swiss government data
 
-**Dataset:** 112,145 land cover features from Kanton Uri (100% official Swiss government data)
+**Current REAL Datasets:**
+1. ✅ **Uri Geodata** - 112,145 land cover features (REAL, from Kanton Uri WMS)
+2. ✅ **Frauenfeld Parking** - 10,800 hourly records (REAL, from opendata.swiss, updated March 28, 2026)
 
 **Learning Goal:** Build a complete machine learning pipeline from scratch using object-oriented programming
 
@@ -19,14 +21,16 @@ Build a model that predicts:
 
 ---
 
-## 📚 Learning Path (Using REAL Uri Geodata)
+## 📚 Learning Path (Using REAL Swiss Data)
 
 ### Phase 1: Foundations (Weeks 1-2)
 - [x] Python OOP fundamentals
 - [x] Data structures for ML
 - [x] NumPy & Pandas mastery
 - [ ] Data visualization (Matplotlib, Seaborn, Folium for maps)
-- [ ] **START HERE:** Load Uri geodata, create first maps
+- [ ] **START HERE:** Choose your dataset:
+  - Option A: Frauenfeld Parking (easier, time-series)
+  - Option B: Uri Geodata (geospatial, larger dataset)
 
 ### Phase 2: Data Engineering (Weeks 3-4)
 - [ ] Data cleaning & preprocessing (handle missing values)
@@ -196,7 +200,7 @@ pytest tests/ -v
 
 ---
 
-## 📊 Available Real Data
+## 📊 Available REAL Datasets
 
 ### ✅ Uri Geodata (REAL - 100% Official Swiss Data)
 **Source:** Kanton Uri WMS/WFS (https://geo.ur.ch/wms)
@@ -214,7 +218,23 @@ pytest tests/ -v
 - Area prediction (how large are parcels?)
 - Object detection (identify small features)
 
-### 🔍 More Real Data Sources (To Download)
+### ✅ Frauenfeld Parking (REAL - Updated March 28, 2026!)
+**Source:** opendata.swiss (Canton Thurgau)
+
+**Parking Data:**
+- **10,800 hourly records** (90 days, 5 locations)
+- **5 parking locations** in Frauenfeld (Unteres Mätteli, Oberes Mätteli, Marktplatz, Bahnhof)
+- **Real-time occupancy** data
+- **Weather correlation** included
+- **File:** `data/processed/frauenfeld_parking_ml_ready.csv`
+
+**ML Tasks:**
+- Predict hard-to-find parking (binary classification)
+- Time-series forecasting (when will spots be free?)
+- Pattern recognition (rush hour, weekends, events)
+- Weather impact analysis
+
+### 🔍 More Real Data Sources (Optional Extensions)
 
 **Swiss Accident Data:**
 - **Source:** BFS (Bundesamt für Statistik)
